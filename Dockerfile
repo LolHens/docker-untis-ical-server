@@ -7,7 +7,7 @@ ENV UNTISICALSERVER_URL https://github.com/LolHens/UntisIcalServer/releases/down
 
 
 RUN cd "/tmp" \
- && wget "$UNTISICALSERVER_URL" \
+ && curl -LO "$UNTISICALSERVER_URL" \
  && unzip "untisicalserver-$UNTISICALSERVER_VERSION.zip" \
  && mv "untisicalserver-$UNTISICALSERVER_VERSION" "/usr/local/untisicalserver/" \
  && cleanimage
