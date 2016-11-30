@@ -3,13 +3,15 @@ MAINTAINER LolHens <pierrekisters@gmail.com>
 
 
 ENV UNTISICALSERVER_VERSION 1.3.2
-ENV UNTISICALSERVER_URL https://github.com/LolHens/UntisIcalServer/releases/download/$UNTISICALSERVER_VERSION/untisicalserver-$UNTISICALSERVER_VERSION.zip
+ENV UNTISICALSERVER_NAME untisicalserver-$UNTISICALSERVER_VERSION
+ENV UNTISICALSERVER_FILE $UNTISICALSERVER_NAME.zip
+ENV UNTISICALSERVER_URL https://github.com/LolHens/UntisIcalServer/releases/download/$UNTISICALSERVER_VERSION/$UNTISICALSERVER_FILE
 
 
 RUN cd "/tmp" \
- && curl -LO "$UNTISICALSERVER_URL" \
- && unzip "untisicalserver-$UNTISICALSERVER_VERSION.zip" \
- && mv "untisicalserver-$UNTISICALSERVER_VERSION" "/usr/local/untisicalserver/" \
+ && curl -LO $UNTISICALSERVER_URL \
+ && unzip $UNTISICALSERVER_FILE \
+ && mv $UNTISICALSERVER_NAME "/usr/local/untisicalserver/" \
  && cleanimage
 
 
