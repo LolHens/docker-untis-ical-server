@@ -2,7 +2,7 @@ FROM lolhens/baseimage-oraclejdk:latest
 MAINTAINER LolHens <pierrekisters@gmail.com>
 
 
-ENV UNTISICALSERVER_VERSION 1.7.2
+ENV UNTISICALSERVER_VERSION 1.7.3
 ENV UNTISICALSERVER_NAME untisicalserver-$UNTISICALSERVER_VERSION
 ENV UNTISICALSERVER_FILE $UNTISICALSERVER_NAME.zip
 ENV UNTISICALSERVER_URL https://github.com/LolHens/UntisIcalServer/releases/download/$UNTISICALSERVER_VERSION/$UNTISICALSERVER_FILE
@@ -15,8 +15,8 @@ RUN cd "/tmp" \
  && cleanimage
 
 
-WORKDIR /usr/local/untisicalserver
-CMD bin/untisicalserver
+WORKDIR /usr/local/untisicalserver/bin
+CMD ./untisicalserver
 
 
 EXPOSE 8080
